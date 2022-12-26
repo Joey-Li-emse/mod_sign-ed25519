@@ -1,10 +1,10 @@
-1) Compile the kernel image from this branch https://github.com/thisway23/linux-kvm-sec/tree/pv-guest
-
-2) Run:
+Sign module for KINT
+1) Run:
 
 ```
-./sign_image <path_to_compiled_image>
+./sign_module <path_to_compiled_module>
 ```
 
-3) Copy hex output into EL2.
-Sign module for KINT loading
+2) Copy hex output into EL2.
+
+
