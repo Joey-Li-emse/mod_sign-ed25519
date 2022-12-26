@@ -62,7 +62,7 @@ int format_elf_file(unsigned char * elfFile) {
 
 		init_padding = (init_size + PAGE_SIZE - 1UL) & ~(PAGE_SIZE - 1UL);
 		padding = init_padding - init_size;
-		fd = fopen("./mod_sign","wb");
+		fd = fopen("./mod_sign.dump","wb");
 		fwrite(init_base, sizeof(char), init_size, fd);
 		for (i = 0; i < padding; i ++)
 			fputc(0, fd);
@@ -119,7 +119,7 @@ int main(int argc, char **argv) {
 	if (err)
 		return 1;
 
-	mod_code_fd = open("./mod_sign", O_RDONLY);
+	mod_code_fd = open("./mod_sign.dump", O_RDONLY);
 	fstat(mod_code_fd, &cs);
 	mod_code_sz = cs.st_size;
 	f_data = (unsigned char *) mmap(0, mod_code_sz, PROT_READ, MAP_PRIVATE, mod_code_fd, 0);
